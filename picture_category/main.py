@@ -20,7 +20,7 @@ def scanDirGetPic(dir):
                     picList.append(os.path.join(root,f))
                     # print(os.path.join(root,f))
                     #print os.path.join(root,f)
-    print('total picture number is: %d' %len(picList))
+    logging.info('total picture counts（原始图片总张数）: %d' %len(picList) )
 
     return picList
 
@@ -55,12 +55,12 @@ def cpFile(srcPath,destDir):
 
         destPath = destDir + os.path.sep + destFolder+os.path.sep + fileName
         if os.path.exists(srcPath) and not os.path.exists(destPath):
-            print('cp %s %s' % (srcPath,destPath))
+            logging.debug('cp %s %s' % (srcPath,destPath))
             shutil.copy(srcPath,destPath)
 
     else:
-        print('%s dont have exif info' %srcPath)
-        #copy to uncategory
+        logging.info('%s dont have exif info(无照片信息)' %srcPath)
+#TODO    copy to uncategory
 
 def main():
     parser = argparse.ArgumentParser(description="Picture Category Program")
@@ -69,6 +69,13 @@ def main():
     args = parser.parse_args()
     # dir = 'F:\\DCIM'
     # dir = 'F:'
+    logging.basicConfig(level=logging.INFO
+                        ,format='%(asctime)s %(filename)s [line:%(lineno)d]  %(levelname)s   %(message)s'
+                        ,datefmt='%Y %b %d  %H:%M:%S'
+                        # ,filename='myapp.log'
+                        # ,filemode='w'
+                        )
+
     inputDir = args.input
     # dir = 'F:\\photos\\2016.1 vivo'
     # dir = 'F:\\王娜\\照片\\本科照片\\照片\\大学的照片\\照片\\联通实习留念\\王娜'
@@ -77,6 +84,8 @@ def main():
     picList = scanDirGetPic(inputDir)
     for pic in picList:
         cpFile(pic,destDir)
+
+    logging.info('total copied pictures(总共处理图片数):')
 
 if __name__ == "__main__":
     main()

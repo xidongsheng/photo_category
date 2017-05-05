@@ -14,4 +14,4 @@ setup(
         'console_scripts': [
             'pic_category = picture_category.main:main']
       }
-    )
+)
