@@ -8,5 +8,10 @@ setup(
       url="",
       license="LGPL",
       packages= find_packages(),
-      scripts=["scripts/test.py"],
-      )
+      install_requires=['Pillow'],
+      # scripts=["picture_category/*.py"],
+      entry_points = {
+        'console_scripts': [
+            'pic_category = picture_category.main:main']
+      }
+    )
