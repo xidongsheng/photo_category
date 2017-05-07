@@ -6,5 +6,6 @@
 python setup.py install
 
 #使用方法
+两个输入参数： 照片所在目录； 处理后存储目录
 pic_category "F:\photos\2016.1 vivo" "D:\test"
 
