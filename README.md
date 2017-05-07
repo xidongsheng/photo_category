@@ -3,9 +3,11 @@
 此小程序可以将照片按照月份分类，去掉重复的。整理后的文件名是从照片EXIF中读取的创建日期与拍摄设备型号。
 
 #安装
+
 python setup.py install
 
 #使用方法
+
 两个输入参数： 照片所在目录； 处理后存储目录
 pic_category "F:\photos\2016.1 vivo" "D:\test"
 
