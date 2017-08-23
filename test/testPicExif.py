@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import unittest
-from picture_category import picExif
+from picture_category import pic_exif
 
 class TestPicExif(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class TestPicExif(unittest.TestCase):
         self.picFile = None
 
     def testGetExif(self):
-        self.assertIsNotNone(picExif.get_exif(self.picFile),'test success')
+        self.assertIsNotNone(pic_exif.get_exif(self.picFile), 'test success')
 
 if __name__=='__main__':
     # unittest.main()
